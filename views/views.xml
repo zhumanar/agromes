@@ -1,0 +1,68 @@
+﻿<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="agromes.list">
+      <field name="name">employee list</field>
+      <field name="model">agromes.employee</field>
+      <field name="arch" type="xml">
+	  
+        <tree>
+		    <field name="patronymic"/>
+            <field name="department"/>
+			
+
+        </tree>
+      </field>
+    </record>
+   
+    <record model="ir.ui.view" id="agromes.list">
+      <field name="name">machines list</field>
+      <field name="model">agromes.machines</field>
+      <field name="arch" type="xml">
+        <tree>
+       
+        </tree>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+	
+    <record model="ir.actions.act_window" id="agromes.action_window">
+		<field name="name">Сотрудники</field>
+		<field name="res_model">agromes.employee</field>
+		<field name="view_mode">tree,form</field>
+
+	</record>
+	
+	<record model="ir.actions.act_window" id="agromes.action_window_1">
+      <field name="name">Машины и агрегаты</field>
+      <field name="res_model">agromes.machines</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+	
+	  <!-- <record model="ir.actions.server" id="employee.action_server"> -->
+      <!-- <field name="name">employee server</field> -->
+      <!-- <field name="model_id" ref="model_agromes_employee"/> -->
+      <!-- <field name="state">code</field> -->
+      <!-- <field name="code"> -->
+        <!-- action = { -->
+          <!-- "type": "ir.actions.act_window", -->
+          <!-- "view_mode": "tree,form", -->
+          <!-- "res_model": self._name, -->
+        <!-- } -->
+      <!-- </field> -->
+    <!-- </record> -->
+
+	
+	 <menuitem name="agromes" id="agromes.menu_root"/>
+   
+    <!-- menu categories -->   
+  	 <menuitem name="List" id="agromes.menu_1" parent="agromes.menu_root"/>
+     <menuitem name="Employee" id="agromes.menu_1_list" parent="agromes.menu_1"  action="agromes.action_window"/>
+	 <menuitem name="Machines" id="agromes.menu_2_list" parent="agromes.menu_1"  action="agromes.action_window_1"/>
+             
+		
+	 
+  </data>
+</odoo>
